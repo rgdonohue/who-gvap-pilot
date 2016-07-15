@@ -192,7 +192,7 @@
         '5d' : 'red',
         '5e' : 'red',
         '6a' : 'red',
-        '7a' : 'white',
+        '7a' : 'gray',
         '8a' : 'red',
         '9a' : 'red',
         '10a' : 'orange'
@@ -258,7 +258,7 @@
         '1d' : 'green',
         '2a' : 'red',
         '2b' : 'orange',
-        '2c' : 'white',
+        '2c' : 'gray',
         '2d' : 'green',
         '3a' : 'orange',
         '3b' : 'red',
@@ -312,7 +312,7 @@
         '1d' : 'green',
         '2a' : 'red',
         '2b' : 'red',
-        '2c' : 'white',
+        '2c' : 'gray',
         '2d' : 'green',
         '3a' : 'red',
         '3b' : 'orange',
@@ -320,7 +320,7 @@
         '3d' : 'green',
         '3e' : 'red',
         '4a' : 'orange',
-        '4b' : 'white',
+        '4b' : 'gray',
         '5a' : 'red',
         '5b' : 'red',
         '5c' : 'red',
@@ -339,7 +339,7 @@
         '1d' : 'red',
         '2a' : 'red',
         '2b' : 'orange',
-        '2c' : 'white',
+        '2c' : 'gray',
         '2d' : 'green',
         '3a' : 'red',
         '3b' : 'orange',
@@ -354,7 +354,7 @@
         '5d' : 'red',
         '5e' : 'red',
         '6a' : 'red',
-        '7a' : 'white',
+        '7a' : 'gray',
         '8a' : 'green',
         '9a' : 'green',
         '10a' : 'red'
@@ -417,6 +417,10 @@
             .style('opacity', '.3');
           d3.select(this)
             .style('opacity', '1')
+        })
+        .on('mouseout', function() {
+          d3.selectAll('.viz')
+            .style('opacity', '1');
         });
 
       d3.selectAll('.viz')
@@ -425,15 +429,18 @@
         })
 
       d3.select('#allCountries').on('click', function() {
+
         d3.select(this).style('display', 'none');
 
         d3.selectAll('.viz')
-          .style('display', 'block');
+          .style('display', 'block')
+          .style('opacity', '1');
 
         d3.select('#infoPanel').style('display', 'none');
 
-
-      })
+        d3.selectAll('svg .unit')
+          .on('mouseover', null)
+        });
     }
 
     function countryDetails(country) {
