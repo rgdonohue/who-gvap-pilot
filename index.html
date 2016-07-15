@@ -20,13 +20,13 @@
       }
       h1 {
         font-size: 1.1em;
-        margin: 0 0 0 15px;
-        padding: 8px 0;
+        margin: 0 0 0 25px;
+        padding: 12px 0 8px;
         color: white;
         font-weight: 300;
       }
       h2 {
-        margin-left: 15px;
+        margin-left: 25px;
         font-weight: 400;
       }
       h3 {
@@ -34,9 +34,9 @@
         font-weight: 300;
       }
       #viz {
-        width: 380px;
-        height: 680px;
-        margin-left: 15px;
+        width: 280px;
+        height: 480px;
+        margin-left: 25px;
         float: left;
       }
       #infoPanel {
@@ -54,6 +54,13 @@
         max-width: 420px;
         font-weight: 300;
         font-size: .9em;
+      }
+      #infoPanel ul {
+        list-style-type: none;
+        padding-left: 0;
+      }
+      #infoPanel li {
+        margin: 0 0 6px 0;
       }
     </style>
     <script src="//d3js.org/d3.v4.min.js"></script>
@@ -87,8 +94,8 @@
 
     var viz = d3.select('#viz')
         .append('svg')
-        .style('width', 360)
-        .style('height', 660);
+        .style('width', 280)
+        .style('height', 480);
 
     var countriesData = {},
         areas,
@@ -197,15 +204,15 @@
               .data(subgoals[goal])
               .enter()
               .append('rect')
-                .style('width', 60)
-                .style('height', 60)
+                .style('width', 40)
+                .style('height', 40)
                 .style('rx', 5)
                 .style('ry', 5)
                 .style('x', function(d, i){
-                    return i * 65;
+                    return i * 45;
                 })
                 .style('y', function(d,i) {
-                    return (goal - 1) * 65;
+                    return (goal - 1) * 45;
                 })
                 .style('fill', function(d, i) {
                     return colorKey[currentCountry][subgoals[goal][i]];
