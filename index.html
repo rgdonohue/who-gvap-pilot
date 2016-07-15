@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>GVAP</title>
+    <style>
+    </style>
+    <script src="//d3js.org/d3.v4.min.js"></script>
+
+  </head>
+  <body>
+
+    <div id="viz"></div>
+
+  <script>
+
+    var width = window.innerWidth;
+
+    var viz = d3.select('#viz')
+        .append('svg')
+        .style('width', width)
+        .style('height', 1500);
+
+    var countriesData = {},
+        indicators;
+
+
+    var colorKey = {
+      'DR Congo' : {
+        '1a' : 'green',
+        '1b' : 'green',
+        '1c' : 'green',
+        '1d' : 'red',
+        '2a' : 'green',
+        '2b' : 'orange',
+        '2c' : 'red',
+        '2d' : 'orange',
+        '3a' : 'red',
+        '3b' : 'red',
+        '3c' : 'red',
+        '3d' : 'red',
+        '3e' : 'red',
+        '4a' : 'red',
+        '4b' : 'green',
+        '5a' : 'orange',
+        '5b' : 'green',
+        '5c' : 'green',
+        '5d' : 'red',
+        '5e' : 'orange',
+        '6a' : 'red',
+        '7a' : 'green',
+        '8a' : 'red',
+        '9a' : 'red',
+        '10a' : 'green'
+      },
+      'Chad' : {
+
+      },
+      'Nigeria' : {
+
+      },
+      'Ethiopia' : {
+
+      },
+      'Uganda' : {
+
+      },
+      'Pakistan' : {
+
+      },
+      'Iraq' : {
+
+      },
+      'Indonesia' : {
+
+      }
+    };
+
+    var subgoals = {
+      '1' : ['1a', '1b', '1c', '1d'],
+      '2' : ['2a', '2b', '2c', '2d'],
+      '3' : ['3a', '3b', '3c', '3d', '3e'],
+      '4' : ['4a', '4b'],
+      '5' : ['5a', '5b', '5c', '5d', '5e'],
+      '6' : ['6a'],
+      '7' : ['7a'],
+      '8' : ['8a'],
+      '9' : ['9a'],
+      '10' : ['10a']
+    }
+
+
+    d3.csv('gvap_priority_data_2.csv', row, function(d) {
+      createViz();
+    })
+
+    function row(d) {
+
+      if(d.Area != "Indicator") {
+
+        countriesData[d.Area] = d;
+
+      }
+    }
+
+    function createViz() {
+
+        console.log(countriesData);
+
+        var goals = [1,2,3,4,5,6,7,8,9,10];
+
+        goals.forEach(function(goal) {
+
+            viz.append('g')
+              .selectAll('rect')
+              .data(subgoals[goal])
+              .enter()
+              .append('rect')
+                .style('width', 75)
+                .style('height', 75)
+                .style('rx', 5)
+                .style('ry', 5)
+                .style('x', function(d, i){
+                    return i * 80;
+                })
+                .style('y', function(d,i) {
+                    return (goal - 1) * 80;
+                })
+                .style('fill', function(d, i) {
+                    return colorKey['DR Congo'][subgoals[goal][i]];
+                });
+            //  }); // end forEach subgoals
+          }); // end forEach goals
+
+
+
+    } // end createViz
+
+
+  </script>
+  </body>
+</html>

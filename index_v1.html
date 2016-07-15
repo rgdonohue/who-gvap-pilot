@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>GVAP</title>
+
+
+    <style>
+    </style>
+    <script src="//d3js.org/d3.v4.min.js"></script>
+
+  </head>
+  <body>
+
+    <div id="viz"></div>
+
+    <script>
+
+
+    var viz = d3.select('#viz')
+        .append('svg')
+        .style('width', 900)
+        .style('height', 1500);
+
+    var gvapData = {},
+        indicators;
+
+
+    function row(d) {
+      console.log(d)
+      if(d.Country != "Indicator") {
+        gvapData[d.Country] = d;
+      } else {
+        indicators = d;
+      }
+    }
+
+    d3.csv('gvap_data.csv', row, function(d) {
+      createViz();
+    })
+
+    function testMeasure(measure, i) {
+      console.log(measure, indicators);
+      return 'steelblue';
+    }
+
+    function createViz() {
+      for(var country in gvapData) {
+        var goalI = 1;
+        while(goalI <= 10) { // there are 10 goals
+          var goals = [];
+          for(var measure in gvapData[country]) {
+            if(measure.indexOf(String(goalI)) === 0 && measure.indexOf(String(0)) != 1) {
+              goals.push(gvapData[country][measure])
+            }
+          }
+          // console.log(goals)
+          viz.append('g')
+            .selectAll('rect')
+            .data(goals)
+            .enter()
+            .append('rect')
+              .style('width', 100)
+              .style('height', 100)
+              .style('rx', 5)
+              .style('ry', 5)
+              .style('x', function(d, i){
+                  return i * 110;
+              })
+              .style('y', function(d,i) {
+                  return (goalI - 1) * 110;
+              })
+              .style('fill', function(d, i) {
+                return testMeasure(d, i);
+              });
+          goalI++;
+        } // end while goal < 10
+        break;
+      } // end for country
+    } // end createViz
+    </script>
+  </body>
+</html>
