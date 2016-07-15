@@ -15,13 +15,17 @@
         color: #3d3d3d;
       }
       header {
-        background: orange;
+        background: #0072bb;
         margin: 0 0 15px 0;
+        height: 75px;
+      }
+      header img {
+        float: left;
       }
       h1 {
-        font-size: 1.1em;
+        font-size: 2.1em;
         margin: 0 0 0 25px;
-        padding: 12px 0 8px;
+        padding: 26px 0 8px;
         color: white;
         font-weight: 300;
       }
@@ -68,7 +72,8 @@
   </head>
   <body>
     <header>
-      <h1>WHO GVAP Vizualizer</h1>
+      <img src="who-logo.png" alt="WHO logo" />
+      <h1>GVAP Vizualizer</h1>
     </header>
     <h2>DR Congo</h2>
     <div id="viz"></div>
@@ -114,6 +119,20 @@
                 countriesData[d.Goal] = d;
       }
     }
+
+    var goals = [1,2,3,4,5,6,7,8,9,10],
+        subgoals = {
+          '1' : ['1a', '1b', '1c', '1d'],
+          '2' : ['2a', '2b', '2c', '2d'],
+          '3' : ['3a', '3b', '3c', '3d', '3e'],
+          '4' : ['4a', '4b'],
+          '5' : ['5a', '5b', '5c', '5d', '5e'],
+          '6' : ['6a'],
+          '7' : ['7a'],
+          '8' : ['8a'],
+          '9' : ['9a'],
+          '10' : ['10a']
+        };
 
     var colorKey = {
       'DR Congo' : {
@@ -166,18 +185,9 @@
       }
     };
 
-    var subgoals = {
-      '1' : ['1a', '1b', '1c', '1d'],
-      '2' : ['2a', '2b', '2c', '2d'],
-      '3' : ['3a', '3b', '3c', '3d', '3e'],
-      '4' : ['4a', '4b'],
-      '5' : ['5a', '5b', '5c', '5d', '5e'],
-      '6' : ['6a'],
-      '7' : ['7a'],
-      '8' : ['8a'],
-      '9' : ['9a'],
-      '10' : ['10a']
-    }
+    var area = d3.select('#area'),
+        indicator = d3.select('#indicator'),
+        value =  d3.select('#value');
 
     function createViz() {
 
@@ -190,12 +200,6 @@
         d3.select('#total-pop').html(countriesData[currentCountry]['Total Population']);
         d3.select('#birth-cohort').html(countriesData[currentCountry]['Birth Cohort']);
         d3.select('#surviving-infants').html(countriesData[currentCountry]['Surviving Infants (JRF)']);
-
-        var area = d3.select('#area'),
-            indicator = d3.select('#indicator'),
-            value =  d3.select('#value');
-
-        var goals = [1,2,3,4,5,6,7,8,9,10];
 
         goals.forEach(function(goal) {
 
@@ -217,16 +221,20 @@
                 .style('fill', function(d, i) {
                     return colorKey[currentCountry][subgoals[goal][i]];
                 })
+                .attr('class', 'unit')
                 .on('mouseover', function(d) {
                   var currentCountryData = countriesData[currentCountry];
                   area.html(areas[d]);
                   indicator.html(indicators[d]);
                   value.html(currentCountryData[d]);
-                  d3.select(this).style('stroke', 'yellow')
+                  d3.selectAll('.unit').style('fill-opacity', '.3');
+                  d3.select(this).style('fill-opacity', '1')
                 })
                 .on('mouseout', function(d) {
-                  d3.select(this).style('stroke', 'none')
-                })
+                  d3.selectAll('.unit').style('fill-opacity', '1');
+                });
+
+
             //  }); // end forEach subgoals
           }); // end forEach goals
 
