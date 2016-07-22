@@ -29,7 +29,7 @@
 		color: white;
 		font-weight: 300;
 		position: absolute;
-		border-top: 1px whitesmoke solid;
+		border-top: 2px whitesmoke solid;
 		top: 65px;
       }
       h2 {
@@ -347,8 +347,15 @@
 			  indicator.html(indicators[d]);
 			  value.html(currentCountryData[d]);
 		  	  value.style('color', d3.select(this).style('fill'))
-			  d3.selectAll('.unit').style('fill-opacity', '.6');
-			  d3.select(this).style('fill-opacity', '1');
+			  d3.selectAll('.unit')
+			  	.transition()
+			  	.duration(200)
+				.style('fill-opacity', '.6');
+		  
+			  d3.select(this)
+				.transition()
+			  	.duration(200)
+				.style('fill-opacity', '1');
 		  })
         .on('mouseout', function(d) {
 		  console.log('herer')
