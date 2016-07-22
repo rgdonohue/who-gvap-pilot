@@ -17,17 +17,20 @@
       header {
         background: #0072bb;
         margin: 0 0 15px 0;
-        height: 75px;
+        height: 110px;
       }
       header img {
         float: left;
       }
       h1 {
-        font-size: 2.1em;
-        margin: 0 0 0 25px;
-        padding: 26px 0 8px;
-        color: white;
-        font-weight: 300;
+		font-size: 1.5em;
+		margin: 5px 0 0 25px;
+		padding: 5px 0 0;
+		color: white;
+		font-weight: 300;
+		position: absolute;
+		border-top: 1px whitesmoke solid;
+		top: 65px;
       }
       h2 {
         font-weight: 400;
@@ -53,9 +56,9 @@
         color: white;
         font-size: 1.3;
         position: absolute;
-        top: 80px;
+        top: 130px;
         right: 30px;
-        display: none;
+		opacity: 0;
       }
       #infoPanel {
         display: inline-block;
@@ -262,12 +265,18 @@
       d3.selectAll('.viz')
         .on('mouseover', function() {
           d3.selectAll('.viz')
+		  	.transition()
+		  	.duration(100)
             .style('opacity', '.6');
           d3.select(this)
+		    .transition()
+		  	.duration(100)
             .style('opacity', '1')
         })
         .on('mouseout', function() {
           d3.selectAll('.viz')
+		    .transition()
+		  	.duration(100)
             .style('opacity', '1');
         });
 
@@ -282,7 +291,12 @@
         d3.selectAll('.viz svg').style('width', '220');   
         d3.selectAll('.goals-label').style('display','none');
 
-        d3.select(this).style('display', 'none');
+        d3.select(this)
+			.transition()
+			.duration(200)
+			.style('opacity', 0);
+
+			
 
         d3.selectAll('.viz')
           .style('display', 'block')
@@ -303,18 +317,20 @@
         
 
       d3.select('#allCountries')
-      .style('display', 'inline-block');
+	  .transition()
+	  .duration(200)
+	  .style('opacity', 1)
 
       var area = d3.select('#area'),
           indicator = d3.select('#indicator'),
           value =  d3.select('#value'),
 		  indicatorWindow = d3.select('#indicator-window');
 
-      d3.selectAll('.viz')
-        .style('display', 'none');
+      d3.selectAll('.viz').style('display', 'none');
 
       d3.select('#'+country+'-viz')
-        .style('display', 'block');
+	  	.style('display', 'block');
+        
 
       d3.selectAll('#'+country+'-viz svg .unit')
          .on('mouseover', function(d) {
@@ -339,20 +355,6 @@
             d3.selectAll('.unit').style('fill-opacity', '1');
 		    indicatorWindow.style('display', 'none');
         });
-	
-//	   d3.selectAll('body').on('mousemove', function() {
-//			   var coords = d3.mouse(this),
-//				   x = coords[0] + 20,
-//				   y = coords[1] - indicatorWindow.node().getBoundingClientRect().height;
-//			
-//		  	   indicatorWindow.style('display', 'inline-block');
-//			   indicatorWindow.style('left', x + "px");
-//			   indicatorWindow.style('top', y + "px");
-//
-//	    })
-		
-	  d3.select('body')
-		  
 
       d3.select('#gni').html(countriesData[country]['GNI 2014']);
       d3.select('#wb-status').html(countriesData[country]['WB Status']);
@@ -362,7 +364,8 @@
       d3.select('#birth-cohort').html(countriesData[country]['Birth Cohort']);
       d3.select('#surviving-infants').html(countriesData[country]['Surviving Infants (JRF)']);
  	  d3.select('#country-data p a').attr('href', countriesData[country]['Report']).text(countriesData[country]['Report']).attr('target', '_blank');
-      d3.select('#infoPanel').style('display', 'inline-block');
+      
+	  d3.select('#infoPanel').style('display', 'inline-block');
 
     }
       
