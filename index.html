@@ -5,7 +5,7 @@
     <title>GVAP</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css">
     <link href='https://fonts.googleapis.com/css?family=Fira+Sans:400,300,500' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Lato:400,300' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,300,600' rel='stylesheet' type='text/css'>
     <style>
       body {
         margin: 0;
@@ -33,14 +33,19 @@
         font-weight: 400;
       }
       h3 {
-        font-size: 1.1em;
+        font-size: 1em;
         font-weight: 300;
       }
+		a {
+			color: #0072bb;
+		}
       .viz {
-        width: 225px;
+        width: 220px;
         height: 520px;
-        margin-left: 25px;
+        margin: 0 0 25px 25px;
         float: left;
+        position: relative;
+        cursor: pointer;
       }
       #allCountries {
         background: #0072bb;
@@ -55,7 +60,7 @@
       #infoPanel {
         display: inline-block;
         position: relative;
-        margin-left: 25px;
+        margin: 40px 0 0 40px;
         max-width: 600px;
         font-family: Lato;
         display: none;
@@ -71,11 +76,60 @@
       }
       #infoPanel ul {
         list-style-type: none;
-        padding-left: 10px;
+        padding: 0;
       }
       #infoPanel li {
         margin: 0 0 6px 0;
+        font-weight: 300;
       }
+      #infoPanel li span{
+        font-weight: 400;
+      }
+      .goal text {
+          fill: #0072bb;
+          font-size: .9em;
+          dominant-baseline: middle;
+      }
+      .viz hr {
+        margin-bottom: 20px;
+      }
+      .indicator-label {
+        background: whitesmoke;
+        padding: 0 10px;
+        position: absolute;
+        left: 63px;
+        top: 59px;
+      }
+    .goals-label {
+        background: whitesmoke;
+        padding: 0 10px;
+        position: absolute;
+        left: 300px;
+        top: 59px;
+        display: none;
+      }
+      #indicator-window {
+		min-width: 140px;
+		max-width: 190px;
+		padding: 12px 18px;
+		background: white;
+		position: absolute;
+		font-size: .9em;
+		border: 1px solid grey;
+		border-radius: 3px;
+		z-index: 100;
+		font-family: Lato, sans-serif;
+		font-size: .9em;
+		line-height: 1.2em;
+		font-weight: 300;
+		display: none;
+       }
+		#indicator {
+			color: #0072bb;
+		}
+		#value {
+			font-weight: 600;
+		}
     </style>
     <script src="//d3js.org/d3.v4.min.js"></script>
 
@@ -85,24 +139,25 @@
       <img src="who-logo.png" alt="WHO logo" />
       <h1>GVAP Vizualizer</h1>
     </header>
-    <button id="allCountries">All Countries</button>
+    <button id="allCountries">&larr; All Countries</button>
+    <div id="indicator-window">
+	  <span id="indicator"></span>: <span id="value"></span>
+	</div>
     <div id="infoPanel">
-      <h3>Area: <span id="area"></span></h3>
-      <h3>Indicator: <span id="indicator"></span></h3>
-      <h3>Value: <span id="value"></span></h3>
-      <h3>Country Data: </h3>
-      <ul>
-        <li>GNI 2014: <span id="gni"></span></li>
-        <li>WB Status: <span id="wb-status"></span></li>
-        <li>Infant mortality (&lt;12M) 2015 UN IAG CME: <span id="infant-morality"></span></li>
-        <li>Gavi Status: <span id="gavi"></span></li>
-        <li>Total Population: <span id="total-pop"></span></li>
-        <li>Birth Control: <span id="birth-cohort"></span></li>
-        <li>Surviving Infants (JRF): <span id="surviving-infants"></span></li>
-      </ul>
-    </div>
-    </div>
-    </div>
+      <div id="country-data">
+          <h3>Country Data:</h3>
+          <ul>
+            <li>GNI 2014: <span id="gni"></span></li>
+            <li>WB Status: <span id="wb-status"></span></li>
+            <li>Infant mortality (&lt;12M) 2015 UN IAG CME: <span id="infant-morality"></span></li>
+            <li>Gavi Status: <span id="gavi"></span></li>
+            <li>Total Population: <span id="total-pop"></span></li>
+            <li>Birth Control: <span id="birth-cohort"></span></li>
+            <li>Surviving Infants (JRF): <span id="surviving-infants"></span></li>
+          </ul>
+		  <p>Download Country Report: <a></a></p>
+       </div> <!-- end country data -->
+    </div><!-- end infoPanel -->
 
   <script>
 
@@ -110,13 +165,8 @@
         areas,
         indicators,
         countries = [];
-
-    d3.csv('gvap_priority_data_2.csv', row, function(d) {
-      countries.forEach(function(country) {
-        createViz(country);
-      });
-    })
-
+      
+      
     function row(d) {
       if(d.Goal == "Area"){
         areas = d;
@@ -128,6 +178,238 @@
       }
     }
 
+    d3.csv('gvap_priority_data.csv', row, function(d) {
+      countries.sort().forEach(function(country) {
+        createViz(country);   
+      });
+        
+      d3.selectAll('.viz').insert('hr','svg').insert('div','svg').text('indicators').attr('class', 'indicator-label');
+        
+      d3.selectAll('.viz').insert('div','svg').text('goals').attr('class', 'goals-label');
+        
+    });
+    
+    function createViz(country) {
+
+        d3.select('body')
+          .insert('div',"#infoPanel")
+          .attr('class', 'viz')
+          .attr('id', country+'-viz')
+          .append('h2')
+          .html(country);
+        
+        d3.select('#'+country+'-viz')
+          .append('svg')
+          .style('width', 220)
+          .style('height', 520);
+        
+        
+       
+        goals.forEach(function(goal) {
+            
+            var g = d3.select('#'+country+'-viz svg')
+              .append('g')
+              .attr('class', 'goal')
+              .selectAll('rect')
+              .data(subgoals[goal])
+              .enter()
+              .append('rect')
+                .style('width', 40)
+                .style('height', 40)
+                .style('rx', 5)
+                .style('ry', 5)
+                .style('x', function(d, i){
+                    return i * 45;
+                })
+                .style('y', function(d,i) {
+                    return (goal - 1) * 45;
+                })
+                .style('fill', function(d, i) {
+                    return colorKey[country][subgoals[goal][i]];
+                })
+                .attr('class', function(d, i) {
+                    return 'unit ' + subgoals[goal][i]
+                })
+              .exit()
+              .data(['area'])
+              .enter()
+              .append('text')
+              .text(function(d) {
+                  var text = areas[subgoals[goal][0]];
+                  return text;
+              })
+              .attr('x', 240)
+              .attr('y', function(d,i) {
+                    return (goal - 1) * 45 + 15;
+                }) 
+              .call(wrap, 340);
+      
+            
+            
+    
+
+            //  }); // end forEach subgoals
+            
+            
+          }); // end forEach goals
+        
+          addUI();
+
+    } // end createViz
+
+    function addUI() {
+
+      d3.selectAll('.viz')
+        .on('mouseover', function() {
+          d3.selectAll('.viz')
+            .style('opacity', '.6');
+          d3.select(this)
+            .style('opacity', '1')
+        })
+        .on('mouseout', function() {
+          d3.selectAll('.viz')
+            .style('opacity', '1');
+        });
+
+      d3.selectAll('.viz')
+        .on('click', function(){
+          countryDetails(d3.select(this).attr('id').slice(0, -4))
+        })
+
+      d3.select('#allCountries').on('click', function() {
+          
+        d3.selectAll('.viz').style('width', '220px');
+        d3.selectAll('.viz svg').style('width', '220');   
+        d3.selectAll('.goals-label').style('display','none');
+
+        d3.select(this).style('display', 'none');
+
+        d3.selectAll('.viz')
+          .style('display', 'block')
+          .style('opacity', '1');
+
+        d3.select('#infoPanel').style('display', 'none');
+
+        d3.selectAll('svg .unit')
+          .on('mouseover', null)
+        });
+    }
+
+    function countryDetails(country) {
+        
+      d3.selectAll('.viz').style('width', '575px');
+      d3.selectAll('.viz svg').style('width', '575px');  
+      d3.selectAll('.goals-label').style('display','block');
+        
+
+      d3.select('#allCountries')
+      .style('display', 'inline-block');
+
+      var area = d3.select('#area'),
+          indicator = d3.select('#indicator'),
+          value =  d3.select('#value'),
+		  indicatorWindow = d3.select('#indicator-window');
+
+      d3.selectAll('.viz')
+        .style('display', 'none');
+
+      d3.select('#'+country+'-viz')
+        .style('display', 'block');
+
+      d3.selectAll('#'+country+'-viz svg .unit')
+         .on('mouseover', function(d) {
+			
+			var coords = d3.select(this).node().getBoundingClientRect(),
+				   x = coords.left + 35,
+				   y = coords.top - indicatorWindow.node().getBoundingClientRect().height - 45;
+			
+		  	   indicatorWindow.style('display', 'inline-block');
+			   indicatorWindow.style('left', x + "px");
+			   indicatorWindow.style('top', y + "px");
+
+			  var currentCountryData = countriesData[country];
+			  indicator.html(indicators[d]);
+			  value.html(currentCountryData[d]);
+		  	  value.style('color', d3.select(this).style('fill'))
+			  d3.selectAll('.unit').style('fill-opacity', '.6');
+			  d3.select(this).style('fill-opacity', '1');
+		  })
+        .on('mouseout', function(d) {
+		  console.log('herer')
+            d3.selectAll('.unit').style('fill-opacity', '1');
+		    indicatorWindow.style('display', 'none');
+        });
+	
+//	   d3.selectAll('body').on('mousemove', function() {
+//			   var coords = d3.mouse(this),
+//				   x = coords[0] + 20,
+//				   y = coords[1] - indicatorWindow.node().getBoundingClientRect().height;
+//			
+//		  	   indicatorWindow.style('display', 'inline-block');
+//			   indicatorWindow.style('left', x + "px");
+//			   indicatorWindow.style('top', y + "px");
+//
+//	    })
+		
+	  d3.select('body')
+		  
+
+      d3.select('#gni').html(countriesData[country]['GNI 2014']);
+      d3.select('#wb-status').html(countriesData[country]['WB Status']);
+      d3.select('#infant-morality').html(countriesData[country]['Infant mortality (<12 M) 2015 UN IAG CME']);
+      d3.select('#gavi').html(countriesData[country]['Gavi Status']);
+      d3.select('#total-pop').html(countriesData[country]['Total Population']);
+      d3.select('#birth-cohort').html(countriesData[country]['Birth Cohort']);
+      d3.select('#surviving-infants').html(countriesData[country]['Surviving Infants (JRF)']);
+ 	  d3.select('#country-data p a').attr('href', countriesData[country]['Report']).text(countriesData[country]['Report']).attr('target', '_blank');
+      d3.select('#infoPanel').style('display', 'inline-block');
+
+    }
+      
+    function wrap(text, width) {
+        // adapted from bostock's example: https://bl.ocks.org/mbostock/7555321
+        
+        text.each(function () {
+            try {
+                
+            
+                var text = d3.select(this),
+                    words = d3.select(this).html().split(/\s+/).reverse(),
+                    word,
+                    line = [],
+                    lineNumber = 0,
+                    lineHeight = 1.1, // ems
+                    x = text.attr("x"),
+                    y = text.attr("y"),
+                    dy = 0, //parseFloat(text.attr("dy")),
+                    tspan = text.text(null)
+                                .append("tspan")
+                                .attr("x", x)
+                                .attr("y", y)
+                                .attr("dy", dy + "em");
+                while (word = words.pop()) {
+                    line.push(word);
+                    tspan.text(line.join(" "));
+                    if (tspan.node().getComputedTextLength() > width) {
+                        line.pop();
+                        tspan.text(line.join(" "));
+                        line = [word];
+                        tspan = text.append("tspan")
+                                    .attr("x", x)
+                                    .attr("y", y)
+                                    .attr("dy", ++lineNumber * lineHeight + dy + "em")
+                                    .text(word);
+                    }
+                }
+                
+                
+            } catch(e) {
+
+                console.log(e)
+            }
+        });
+    }
+      
     var goals = [1,2,3,4,5,6,7,8,9,10],
         subgoals = {
           '1' : ['1a', '1b', '1c', '1d'],
@@ -360,128 +642,6 @@
         '10a' : 'red'
       }
     };
-
-
-    function createViz(country) {
-
-        d3.select('body')
-          .insert('div',"#infoPanel")
-          .attr('class', 'viz')
-          .attr('id', country+'-viz')
-          .append('h2')
-          .html(country);
-
-        d3.select('#'+country+'-viz')
-          .append('svg')
-          .style('width', 225)
-          .style('height', 520);
-
-        var currentCountry = country;
-
-        goals.forEach(function(goal) {
-
-            d3.select('#'+country+'-viz svg')
-              .append('g')
-              .selectAll('rect')
-              .data(subgoals[goal])
-              .enter()
-              .append('rect')
-                .style('width', 40)
-                .style('height', 40)
-                .style('rx', 5)
-                .style('ry', 5)
-                .style('x', function(d, i){
-                    return i * 45;
-                })
-                .style('y', function(d,i) {
-                    return (goal - 1) * 45;
-                })
-                .style('fill', function(d, i) {
-                    return colorKey[currentCountry][subgoals[goal][i]];
-                })
-                .attr('class', 'unit');
-
-
-            //  }); // end forEach subgoals
-          }); // end forEach goals
-
-          addUI();
-
-    } // end createViz
-
-    function addUI() {
-
-      d3.selectAll('.viz')
-        .on('mouseover', function() {
-          d3.selectAll('.viz')
-            .style('opacity', '.3');
-          d3.select(this)
-            .style('opacity', '1')
-        })
-        .on('mouseout', function() {
-          d3.selectAll('.viz')
-            .style('opacity', '1');
-        });
-
-      d3.selectAll('.viz')
-        .on('click', function(){
-          countryDetails(d3.select(this).attr('id').slice(0, -4))
-        })
-
-      d3.select('#allCountries').on('click', function() {
-
-        d3.select(this).style('display', 'none');
-
-        d3.selectAll('.viz')
-          .style('display', 'block')
-          .style('opacity', '1');
-
-        d3.select('#infoPanel').style('display', 'none');
-
-        d3.selectAll('svg .unit')
-          .on('mouseover', null)
-        });
-    }
-
-    function countryDetails(country) {
-
-      d3.select('#allCountries').style('display', 'inline-block');
-
-      var area = d3.select('#area'),
-          indicator = d3.select('#indicator'),
-          value =  d3.select('#value');
-
-      d3.selectAll('.viz')
-        .style('display', 'none');
-
-      d3.select('#'+country+'-viz')
-        .style('display', 'block');
-
-      d3.selectAll('#'+country+'-viz svg .unit')
-        .on('mouseover', function(d) {
-          console.log(d)
-          var currentCountryData = countriesData[country];
-          area.html(areas[d]);
-          indicator.html(indicators[d]);
-          value.html(currentCountryData[d]);
-          d3.selectAll('.unit').style('fill-opacity', '.3');
-          d3.select(this).style('fill-opacity', '1')
-        })
-        .on('mouseout', function(d) {
-          d3.selectAll('.unit').style('fill-opacity', '1');
-        });
-
-      d3.select('#gni').html(countriesData[country]['GNI 2014']);
-      d3.select('#wb-status').html(countriesData[country]['WB Status']);
-      d3.select('#infant-morality').html(countriesData[country]['Infant mortality (<12 M) 2015 UN IAG CME']);
-      d3.select('#gavi').html(countriesData[country]['Gavi Status']);
-      d3.select('#total-pop').html(countriesData[country]['Total Population']);
-      d3.select('#birth-cohort').html(countriesData[country]['Birth Cohort']);
-      d3.select('#surviving-infants').html(countriesData[country]['Surviving Infants (JRF)']);
-
-      d3.select('#infoPanel').style('display', 'inline-block');
-
-    }
 
 
   </script>
