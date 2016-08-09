@@ -395,8 +395,8 @@
           
          d3.select('#download-goals')
             .style('display', 'none');
-          
-         d3.selectAll('#goals tspan a').remove();
+
+         d3.selectAll('#download-goals a').remove();
         
           
 			});
@@ -441,8 +441,14 @@
 		}
 
 		function countryDetails(country) {
-        
+
       document.body.scrollTop = document.documentElement.scrollTop = 0;
+        
+        
+      var generateLocalPath = function(d) {
+          return './country_reports/' + countriesData[country].ISO + 
+                   '/' + countriesData[country].ISO + '-report-goal-' + d + '.docx';
+      }
         
       d3.select('#download-goals')
         .style('display', 'inline-block')
@@ -450,13 +456,13 @@
         .data(goals)
         .enter()
         .append('a')
-        .text('(PDF)')
+        .text('(DOCX)')
         .attr('href', function(d) {
             if(d == 5) {
                 return 'http://www.who.int/immunization/monitoring_surveillance/data/wuenic_animated_map.gif';
             } else {
-                return './country_reports/' + country.toLowerCase() + 
-                   '/' + country.toLowerCase() + '-report-goal-' + d + '.docx';
+               return generateLocalPath(d)
+
             }
         })
         .attr('target', '_blank');
