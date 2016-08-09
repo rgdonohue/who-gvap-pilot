@@ -121,6 +121,14 @@
 			left: 60px;
 			top: 59px;
 		}
+      
+    .download-report-label {
+			background: whitesmoke;
+			padding: 0 10px;
+			position: absolute;
+			left: 318px;
+			top: 186px;
+		}
 		
 		#indicator-window {
 			min-width: 140px;
@@ -150,14 +158,14 @@
 		#goals {
 			width: 300px;
 			float: left;
-			margin: 50px 0 0 20px;
+			margin: 50px 0 2000px 20px;
 			position: relative;
 		}
 		#goals hr {
 			margin-top: 18px;
 			margin-bottom: -18px;
 		}
-		#goals text {
+		#goals text, #goals tspan a {
 			fill: #0072bb;
 			font-size: .9em;
 /*			dominant-baseline: middle;*/
@@ -169,6 +177,20 @@
 			background: whitesmoke;
 			padding: 0 14px;
 		}
+    #download-goals {
+      width: 50px;
+      min-height: 680px;
+      float: left;
+      display: none;
+      width: 60px;
+      margin: 59px 0 15px;
+    }
+    #download-goals a {
+        display: block;
+        text-align: center;
+        margin-top: 29px;
+        font-size: .9em;
+    }
 	</style>
 	<script src="//d3js.org/d3.v4.min.js"></script>
 
@@ -217,6 +239,7 @@
 		function row(d) {
 			if (d.Goal == "Area") {
 				areas = d;
+          console.log(areas)
 			} else if (d.Goal == "Indicator") {
 				indicators = d;
 			} else {
@@ -260,6 +283,8 @@
 				})
 				.call(wrap, 290)
 				.attr('text-anchor', 'end');
+        
+        addUI();
 
 		});
 
@@ -304,26 +329,11 @@
 					.attr('class', function (d, i) {
 						return 'unit ' + subgoals[goal][i]
 					})
-					//              .exit()
-					//              .data(['area'])
-					//              .enter()
-					//              .append('text')
-					//              .text(function(d) {
-					//                  var text = areas[subgoals[goal][0]];
-					//                  return text;
-					//              })
-					//              .attr('x', 240)
-					//              .attr('y', function(d,i) {
-					//                    return (goal - 1) * 45 + 15;
-					//                }) 
-					//              .call(wrap, 340);
 
 				// }); // end forEach subgoals
 
 
 			}); // end forEach goals
-
-			addUI();
 
 		} // end createViz
 
@@ -358,20 +368,40 @@
 				d3.selectAll('.viz svg').style('width', '220');
 				d3.selectAll('.goals-label').style('display', 'none');
 
-				d3.select(this)
-					.transition()
-					.duration(200)
-					.style('opacity', 0);
+				 d3.select(this)
+            .transition()
+            .duration(200)
+            .style('opacity', 0);
 
-				d3.selectAll('.viz')
-					.style('display', 'block')
-					.style('opacity', '1');
+				 d3.selectAll('.viz')
+					  .style('display', 'block')
+					  .style('opacity', '1');
 
-				d3.select('#infoPanel').style('display', 'none');
+				 d3.select('#infoPanel')
+             .style('display', 'none');
 
-				d3.selectAll('svg .unit')
-					.on('mouseover', null)
+				 d3.selectAll('svg .unit')
+					  .on('mouseover', null);       
+          
+         d3.select('#download-goals')
+            .style('display', 'none');
+          
+         d3.selectAll('#goals tspan a').remove();
+        
+          
 			});
+        
+        
+      d3.select('body')
+        .insert('div', '#allCountries')
+        .attr('id', 'download-goals')
+        .insert('hr', 'svg')
+        .insert('div', 'svg')
+        .text('report')
+        .attr('class', 'download-report-label')
+        .attr('class', 'download-report-label');
+        
+     
 		}
 
 		function countryDetails(country) {
@@ -379,8 +409,27 @@
 //			d3.selectAll('.viz').style('width', '575px');
 //			d3.selectAll('.viz svg').style('width', '575px');
 //			d3.selectAll('.goals-label').style('display', 'block');
-
-
+        
+      console.log(country.toLowerCase());
+        
+      d3.select('#download-goals')
+        .style('display', 'inline-block')
+        .selectAll('a')
+        .data(goals)
+        .enter()
+        .append('a')
+        .text('(PDF)')
+        .attr('href', function(d) {
+            return './country_reports/' + country.toLowerCase() + 
+                   '/' + country.toLowerCase() + '-report-goal-' + d + '.docx';
+        });
+        
+//      d3.selectAll('#goals tspan')
+//        .append('a')
+//        .attr('xlink:href','http://www.w3schools.com/svg/')
+//        .attr('target', '_blank')
+//        .text(' (download report)')
+        
 			d3.select('#allCountries')
 				.transition()
 				.duration(200)
@@ -423,7 +472,6 @@
 						.style('fill-opacity', '1');
 				})
 				.on('mouseout', function (d) {
-					console.log('herer')
 					d3.selectAll('.unit').style('fill-opacity', '1');
 					indicatorWindow.style('display', 'none');
 				});
@@ -486,7 +534,7 @@
 		}
 
 		var goals = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-			subgoals = {
+			  subgoals = {
 				'1': ['1a', '1b', '1c', '1d'],
 				'2': ['2a', '2b', '2c', '2d'],
 				'3': ['3a', '3b', '3c', '3d', '3e'],
@@ -497,7 +545,7 @@
 				'8': ['8a'],
 				'9': ['9a'],
 				'10': ['10a']
-			};
+     };
 
 		var colorKey = {
 			'DR_Congo': {
