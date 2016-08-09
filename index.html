@@ -221,7 +221,7 @@
 				<li>Birth Control: <span id="birth-cohort"></span></li>
 				<li>Surviving Infants (JRF): <span id="surviving-infants"></span></li>
 			</ul>
-			<p>Download Country Report:
+			<p>Detailed Information:
 				<a></a>
 			</p>
 		</div>
@@ -239,7 +239,6 @@
 		function row(d) {
 			if (d.Goal == "Area") {
 				areas = d;
-          console.log(areas)
 			} else if (d.Goal == "Indicator") {
 				indicators = d;
 			} else {
@@ -405,12 +404,8 @@
 		}
 
 		function countryDetails(country) {
-
-//			d3.selectAll('.viz').style('width', '575px');
-//			d3.selectAll('.viz svg').style('width', '575px');
-//			d3.selectAll('.goals-label').style('display', 'block');
         
-      console.log(country.toLowerCase());
+      document.body.scrollTop = document.documentElement.scrollTop = 0;
         
       d3.select('#download-goals')
         .style('display', 'inline-block')
@@ -420,15 +415,14 @@
         .append('a')
         .text('(PDF)')
         .attr('href', function(d) {
-            return './country_reports/' + country.toLowerCase() + 
+            if(d == 5) {
+                return 'http://www.who.int/immunization/monitoring_surveillance/data/wuenic_animated_map.gif';
+            } else {
+                return './country_reports/' + country.toLowerCase() + 
                    '/' + country.toLowerCase() + '-report-goal-' + d + '.docx';
-        });
-        
-//      d3.selectAll('#goals tspan')
-//        .append('a')
-//        .attr('xlink:href','http://www.w3schools.com/svg/')
-//        .attr('target', '_blank')
-//        .text(' (download report)')
+            }
+        })
+        .attr('target', '_blank');
         
 			d3.select('#allCountries')
 				.transition()
@@ -483,7 +477,9 @@
 			d3.select('#total-pop').html(countriesData[country]['Total Population']);
 			d3.select('#birth-cohort').html(countriesData[country]['Birth Cohort']);
 			d3.select('#surviving-infants').html(countriesData[country]['Surviving Infants (JRF)']);
-			d3.select('#country-data p a').attr('href', countriesData[country]['Report']).text(countriesData[country]['Report']).attr('target', '_blank');
+	    d3.select('#country-data p a').attr('href', 'http://apps.who.int/immunization_monitoring/globalsummary/countries?countrycriteria%5Bcountry%5D%5B%5D='+detailedInfoKey[country]).text('WHO monitoring system').attr('target', '_blank');		
+   
+//     d3.select('#country-data p a').attr('href', countriesData[country]['Report']).text(countriesData[country]['Report']).attr('target', '_blank');
 
 			d3.select('#infoPanel').style('display', 'inline-block');
 
@@ -546,6 +542,17 @@
 				'9': ['9a'],
 				'10': ['10a']
      };
+      
+    var detailedInfoKey = {
+        'DR_Congo' : 'COD',
+        'Chad' : 'TCD',
+        'Nigeria' : 'NGA',
+        'Ethiopia' : 'ETH',
+        'Uganda' : 'UGA',
+        'Pakistan' : 'PAK',
+        'Iraq' : 'IRQ',
+        'Indonesia' : 'IDN'  
+    }
 
 		var colorKey = {
 			'DR_Congo': {
