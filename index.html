@@ -20,8 +20,14 @@
 			background: #0072bb;
 			margin: 0 0 15px 0;
 			height: 110px;
+      width: 100%;
+      position: fixed;
+      z-index: 200;
 		}
-		
+    body section {
+      z-index: 100;
+      padding-top: 140px;  
+    }
 		header img {
 			float: left;
 		}
@@ -126,8 +132,8 @@
 			background: whitesmoke;
 			padding: 0 10px;
 			position: absolute;
-			left: 318px;
-			top: 186px;
+			left: 330px;
+			top: 200px;
 		}
 		
 		#indicator-window {
@@ -183,7 +189,7 @@
       float: left;
       display: none;
       width: 60px;
-      margin: 59px 0 15px;
+      margin: 60px 0 15px 15px;
     }
     #download-goals a {
         display: block;
@@ -201,33 +207,38 @@
 		<img src="who-logo.png" alt="WHO logo" />
 		<h1>GVAP Vizualizer</h1>
 	</header>
-	<div id="goals">
-		<hr>
-		<span>goals</span>
-	</div>
-	<button id="allCountries">&larr; All Countries</button>
-	<div id="indicator-window">
-		<span id="indicator"></span>: <span id="value"></span>
-	</div>
-	<div id="infoPanel">
-		<div id="country-data">
-			<h3>Country Data:</h3>
-			<ul>
-				<li>GNI 2014: <span id="gni"></span></li>
-				<li>WB Status: <span id="wb-status"></span></li>
-				<li>Infant mortality (&lt;12M) 2015 UN IAG CME: <span id="infant-morality"></span></li>
-				<li>Gavi Status: <span id="gavi"></span></li>
-				<li>Total Population: <span id="total-pop"></span></li>
-				<li>Birth Control: <span id="birth-cohort"></span></li>
-				<li>Surviving Infants (JRF): <span id="surviving-infants"></span></li>
-			</ul>
-			<p>Detailed Information:
-				<a></a>
-			</p>
-		</div>
-		<!-- end country data -->
-	</div>
-	<!-- end infoPanel -->
+  <section>
+      
+      <div id="goals">
+        <hr>
+        <span>goals</span>
+      </div>
+      
+      <button id="allCountries">&larr; All Countries</button>
+      
+      <div id="indicator-window">
+        <span id="indicator"></span>: <span id="value"></span>
+      </div>
+      
+      <div id="infoPanel">
+        <div id="country-data">
+          <h3>Country Data:</h3>
+          <ul>
+            <li>GNI 2014: <span id="gni"></span></li>
+            <li>WB Status: <span id="wb-status"></span></li>
+            <li>Infant mortality (&lt;12M) 2015 UN IAG CME: <span id="infant-morality"></span></li>
+            <li>Gavi Status: <span id="gavi"></span></li>
+            <li>Total Population: <span id="total-pop"></span></li>
+            <li>Birth Control: <span id="birth-cohort"></span></li>
+            <li>Surviving Infants (JRF): <span id="surviving-infants"></span></li>
+          </ul>
+          <p>Detailed Information:
+            <a></a>
+          </p>
+        </div> <!-- end country data -->
+       
+      </div> <!-- end infoPanel -->
+    </section>
 
 	<script>
 		var countriesData = {},
@@ -289,7 +300,7 @@
 
 		function createViz(country) {
 
-			d3.select('body')
+			d3.select('body section')
 				.insert('div', "#infoPanel")
 				.attr('class', 'viz')
 				.attr('id', country + '-viz')
@@ -391,7 +402,7 @@
 			});
         
         
-      d3.select('body')
+      d3.select('body section')
         .insert('div', '#allCountries')
         .attr('id', 'download-goals')
         .insert('hr', 'svg')
@@ -399,6 +410,32 @@
         .text('report')
         .attr('class', 'download-report-label')
         .attr('class', 'download-report-label');
+        
+        
+      var sectionContainer = d3.select('section');
+
+      window.onscroll = function() { 
+          
+          var sectionContainerTop = sectionContainer.node().getBoundingClientRect().top;
+          
+          console.log(sectionContainerTop)
+
+          if(sectionContainerTop < -1600) {
+              d3.select('#goals').style('padding-top', '1635px');
+              d3.select('#goals span').style('padding-top', '1635px'); 
+          } else if(sectionContainerTop < -1040) {
+              d3.select('#goals').style('padding-top', '1090px');
+              d3.select('#goals span').style('padding-top', '1090px'); 
+          } else if(sectionContainerTop < -475) {
+              d3.select('#goals').style('padding-top', '545px');
+              d3.select('#goals span').style('padding-top', '545px');  
+          } else {
+              d3.select('#goals').style('padding-top', '0');
+              d3.select('#goals span').style('padding-top', '0');  
+          }
+      };
+        
+      
         
      
 		}
@@ -457,12 +494,12 @@
 					value.style('color', d3.select(this).style('fill'))
 					d3.selectAll('.unit')
 						.transition()
-						.duration(200)
+						.duration(100)
 						.style('fill-opacity', '.6');
 
 					d3.select(this)
 						.transition()
-						.duration(200)
+						.duration(100)
 						.style('fill-opacity', '1');
 				})
 				.on('mouseout', function (d) {
