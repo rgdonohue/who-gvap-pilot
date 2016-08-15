@@ -114,8 +114,7 @@
 			fill: #0072bb;
 			font-size: .9em;
 			dominant-baseline: middle;
-		}
-		
+		} 
 		.viz hr {
 			margin-bottom: 20px;
 		}
@@ -167,6 +166,10 @@
 			margin: 50px 0 2000px 20px;
 			position: relative;
 		}
+      		
+     #goals:hover {
+          cursor: default;
+      } 
 		#goals hr {
 			margin-top: 18px;
 			margin-bottom: -18px;
@@ -189,12 +192,12 @@
       float: left;
       display: none;
       width: 60px;
-      margin: 60px 0 15px 15px;
+      margin: 74px 0 15px 15px;
     }
     #download-goals a {
         display: block;
         text-align: center;
-        margin-top: 29px;
+        margin-top: 22px;
         font-size: .9em;
     }
 	</style>
@@ -204,7 +207,7 @@
 
 <body>
 	<header>
-		<img src="who-logo.png" alt="WHO logo" />
+		<img src="images/who-logo.png" alt="WHO logo" />
 		<h1>GVAP Vizualizer</h1>
 	</header>
   <section>
@@ -405,7 +408,7 @@
       d3.select('body section')
         .insert('div', '#allCountries')
         .attr('id', 'download-goals')
-        .insert('hr', 'svg')
+//        .insert('hr', 'svg')
         .insert('div', 'svg')
         .text('report')
         .attr('class', 'download-report-label')
@@ -444,6 +447,10 @@
 
       document.body.scrollTop = document.documentElement.scrollTop = 0;
         
+    
+      var generateLocalPunchCardPath = function(d) {
+          return './images/punch-cards/' + countriesData[country].ISO + '.png';
+      }    
         
       var generateLocalPath = function(d) {
           return './country_reports/' + countriesData[country].ISO + 
@@ -456,21 +463,24 @@
         .data(goals)
         .enter()
         .append('a')
-        .text('(DOCX)')
         .attr('href', function(d) {
+            console.log(d)
             if(d == 5) {
-                return 'http://www.who.int/immunization/monitoring_surveillance/data/wuenic_animated_map.gif';
+                return generateLocalPunchCardPath(d);
             } else {
-               return generateLocalPath(d)
+               return generateLocalPath(d);
 
             }
         })
-        .attr('target', '_blank');
+        .attr('target', '_blank')
+        .append('img')
+        .attr('src', './images/download.png')
+        .attr('alt', 'download report');
         
 			d3.select('#allCountries')
 				.transition()
 				.duration(200)
-				.style('opacity', 1)
+				.style('opacity', 1);
 
 			var area = d3.select('#area'),
 				indicator = d3.select('#indicator'),
@@ -521,8 +531,6 @@
 			d3.select('#birth-cohort').html(countriesData[country]['Birth Cohort']);
 			d3.select('#surviving-infants').html(countriesData[country]['Surviving Infants (JRF)']);
 	    d3.select('#country-data p a').attr('href', 'http://apps.who.int/immunization_monitoring/globalsummary/countries?countrycriteria%5Bcountry%5D%5B%5D='+detailedInfoKey[country]).text('WHO monitoring system').attr('target', '_blank');		
-   
-//     d3.select('#country-data p a').attr('href', countriesData[country]['Report']).text(countriesData[country]['Report']).attr('target', '_blank');
 
 			d3.select('#infoPanel').style('display', 'inline-block');
 
