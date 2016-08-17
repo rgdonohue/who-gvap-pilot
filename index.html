@@ -24,6 +24,41 @@
       position: fixed;
       z-index: 200;
 		}
+    header nav {
+      position: absolute;
+      right: 25px;
+      bottom: 25px;
+      height: 50px;
+
+    }  
+    header nav ul {
+      list-style-type: none;
+    }
+    header nav ul li {
+      max-width: 100px;
+      text-align: center;
+      margin: 0;
+      padding: 4px 6px;
+      border-radius: 4px;
+      border: 2px solid white;
+    }
+    header nav ul li:hover {
+      background: white;
+    }
+    header nav ul li.selected {
+        background: white;   
+    }
+    header nav ul li.selected a {
+        color: #0072bb; 
+    }
+    header nav ul li a {
+      color: white;
+      text-decoration: none;
+    }
+    header nav ul li:hover a {
+      color: #0072bb;
+
+    }
     body section {
       z-index: 100;
       padding-top: 140px;  
@@ -55,7 +90,6 @@
 		a {
 			color: #0072bb;
 		}
-		
 		.viz {
 			width: 220px;
 			height: 520px;
@@ -200,6 +234,11 @@
         margin-top: 22px;
         font-size: .9em;
     }
+      #animated-map {
+          margin: 0 auto;
+          padding-top: 150px; 
+          display: none;
+      }
 	</style>
 	<script src="//d3js.org/d3.v4.min.js"></script>
 
@@ -209,9 +248,14 @@
 	<header>
 		<img src="images/who-logo.png" alt="WHO logo" />
 		<h1>GVAP Vizualizer</h1>
+    <nav>
+        <ul>
+            <li class="animated-map"><a href='#'>animated map of DTP3</a></li>
+        </ul>  
+    </nav>
 	</header>
+  <img id="animated-map" class="hidden" src="images/wuenic_animated_map.gif" alt="animated world map of DTP3 coverage">
   <section>
-      
       <div id="goals">
         <hr>
         <span>goals</span>
@@ -420,8 +464,6 @@
       window.onscroll = function() { 
           
           var sectionContainerTop = sectionContainer.node().getBoundingClientRect().top;
-          
-          console.log(sectionContainerTop)
 
           if(sectionContainerTop < -1600) {
               d3.select('#goals').style('padding-top', '1635px');
@@ -438,10 +480,22 @@
           }
       };
         
-      
+      d3.select('.animated-map')
+        .on('click', function() {
+            if(!d3.select(this).classed('selected')){
+                d3.select(this).attr('class','selected');              d3.select('section').style('display', 'none');
+                d3.select('#animated-map').style('display', 'block');
+                //d3.select('#animated-map').attr('class','');   
+               // d3.select('section').attr('class', 'hidden');
+            } else {
+                d3.select(this).attr('class','');
+                d3.select('section').style('display','block'); 
+                d3.select('#animated-map').style('display', 'none');
+            }
+      })
         
      
-		}
+		} // end addUI
 
 		function countryDetails(country) {
 
