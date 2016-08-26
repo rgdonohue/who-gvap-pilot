@@ -305,7 +305,7 @@
 			}
 		}
 
-      d3.csv('gvap_priority_data.csv', row, function (d) {
+      d3.csv('gvap_priority_data_2.csv', row, function (d) {
 			 countries.sort().forEach(function (country) {
 				 createViz(country);
 			 });
@@ -381,7 +381,7 @@
 						return (goal - 1) * 45;
 					})
 					.style('fill', function (d, i) {
-						return colorKey[country][subgoals[goal][i]];
+            return countriesData[country][d + '-color'];
 					})
 					.attr('class', function (d, i) {
 						return 'unit ' + subgoals[goal][i]
