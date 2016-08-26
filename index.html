@@ -305,10 +305,10 @@
 			}
 		}
 
-		d3.csv('gvap_priority_data.csv', row, function (d) {
-			countries.sort().forEach(function (country) {
-				createViz(country);
-			});
+      d3.csv('gvap_priority_data.csv', row, function (d) {
+			 countries.sort().forEach(function (country) {
+				 createViz(country);
+			 });
 
 			d3.select('#goals svg').insert('hr', 'g').text('goals').attr('class', 'goals-label');
 
