@@ -1,4 +1,44 @@
 (function() {
+    
+    
+    
+    var countryReportNames = {
+        '1': 'Polio',
+        '2': 'Neonatal-tetanus-elimination',
+        '3': 'Measles-elemination',
+        '4': 'Rubella-elimination',
+        '5': '90%-DTP3cv',
+        '6': '90%-all-vaccines',
+        '7': 'New-vaccines',
+        '8': '',
+        '9': 'NITAG',
+        '10': 'Government-expenditure'
+    }
+
+    var goals = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+        subgoals = {
+        '1': ['1a', '1b', '1c', '1d'],
+        '2': ['2a', '2b', '2c', '2d'],
+        '3': ['3a', '3b', '3c', '3d', '3e'],
+        '4': ['4a', '4b'],
+        '5': ['5a', '5b', '5c', '5d', '5e'],
+        '6': ['6a'],
+        '7': ['7a'],
+        '8': ['8a'],
+        '9': ['9a'],
+        '10': ['10a']
+     };
+
+    var detailedInfoKey = {
+        'DR_Congo' : 'COD',
+        'Chad' : 'TCD',
+        'Nigeria' : 'NGA',
+        'Ethiopia' : 'ETH',
+        'Uganda' : 'UGA',
+        'Pakistan' : 'PAK',
+        'Iraq' : 'IRQ',
+        'Indonesia' : 'IDN'  
+    }
 
     var countriesData = {},
       areas,
@@ -197,8 +237,6 @@
             if(!d3.select(this).classed('selected')){
                 d3.select(this).attr('class','selected');              d3.select('section').style('display', 'none');
                 d3.select('#animated-map').style('display', 'block');
-                //d3.select('#animated-map').attr('class','');   
-               // d3.select('section').attr('class', 'hidden');
             } else {
                 d3.select(this).attr('class','');
                 d3.select('section').style('display','block'); 
@@ -219,7 +257,10 @@
       }    
 
       var generateLocalPath = function(d) {
-          return './country_reports/' + countriesData[country].ISO + 
+//          return './country_reports/' + countriesData[country].ISO + 
+//                   '/' + countriesData[country].ISO + '-report-goal-' + d + '.docx';
+          console.log(d)
+          return './data/country_reports/' + countriesData[country].ISO + 
                    '/' + countriesData[country].ISO + '-report-goal-' + d + '.docx';
       }
 
@@ -345,29 +386,5 @@
         }
       });
     }
-
-    var goals = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-        subgoals = {
-        '1': ['1a', '1b', '1c', '1d'],
-        '2': ['2a', '2b', '2c', '2d'],
-        '3': ['3a', '3b', '3c', '3d', '3e'],
-        '4': ['4a', '4b'],
-        '5': ['5a', '5b', '5c', '5d', '5e'],
-        '6': ['6a'],
-        '7': ['7a'],
-        '8': ['8a'],
-        '9': ['9a'],
-        '10': ['10a']
-     };
-
-    var detailedInfoKey = {
-        'DR_Congo' : 'COD',
-        'Chad' : 'TCD',
-        'Nigeria' : 'NGA',
-        'Ethiopia' : 'ETH',
-        'Uganda' : 'UGA',
-        'Pakistan' : 'PAK',
-        'Iraq' : 'IRQ',
-        'Indonesia' : 'IDN'  
-    }
+    
 })();
