@@ -29,7 +29,7 @@
         '10': ['10a']
      };
 
-    var detailedInfoKey = {
+    var iSOKey = {
         'DR_Congo' : 'COD',
         'Chad' : 'TCD',
         'Nigeria' : 'NGA',
@@ -330,15 +330,21 @@
           d3.selectAll('.unit').style('fill-opacity', '1');
           indicatorWindow.style('display', 'none');
         });
-
+        
+      d3.select('#full-report')
+          .attr('href', './data/country_reports/'+countriesData[country].ISO+'/'+countriesData[country].ISO+'-Final-Report.docx');
+      d3.select('#immunization-schedule')
+          .attr('href', './data/country_reports/'+countriesData[country].ISO+'/'+countriesData[country].ISO+'-Immunization-schedule.docx');
+      d3.select('#who-monitoring').attr('href', 'http://apps.who.int/immunization_monitoring/globalsummary/countries?countrycriteria%5Bcountry%5D%5B%5D='+iSOKey[country]).attr('target', '_blank');
+        
+   
       d3.select('#gni').html(countriesData[country]['GNI 2014']);
       d3.select('#wb-status').html(countriesData[country]['WB Status']);
       d3.select('#infant-morality').html(countriesData[country]['Infant mortality (<12 M) 2015 UN IAG CME']);
       d3.select('#gavi').html(countriesData[country]['Gavi Status']);
       d3.select('#total-pop').html(countriesData[country]['Total Population']);
       d3.select('#birth-cohort').html(countriesData[country]['Birth Cohort']);
-      d3.select('#surviving-infants').html(countriesData[country]['Surviving Infants (JRF)']);
-      d3.select('#country-data p a').attr('href', 'http://apps.who.int/immunization_monitoring/globalsummary/countries?countrycriteria%5Bcountry%5D%5B%5D='+detailedInfoKey[country]).text('WHO monitoring system').attr('target', '_blank');		
+      d3.select('#surviving-infants').html(countriesData[country]['Surviving Infants (JRF)']);	
 
       d3.select('#infoPanel').style('display', 'inline-block');
 
