@@ -254,10 +254,7 @@
         d3.select('#download-goals')
             .style('display', 'inline-block')
             .selectAll('a')
-            .data(function() {
-                goals.splice(5,0,5.2).join();
-                return goals;
-            })
+            .data([1,2,3,4,5,5.2,6,7,8,9,10])
             .enter()
             .append('a')
             .attr('class', function(d) {
