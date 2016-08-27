@@ -5,14 +5,14 @@
     var countryReportNames = {
         '1': 'Polio',
         '2': 'Neonatal-tetanus-elimination',
-        '3': 'Measles-elemination',
+        '3': 'Measles-elimination',
         '4': 'Rubella-elimination',
-        '5': '90%-DTP3cv',
-        '6': '90%-all-vaccines',
+        '5': 'DTP3cv',
+        '6': 'all-vaccines',
         '7': 'New-vaccines',
         '8': '',
         '9': 'NITAG',
-        '10': 'Government-expenditure'
+        '10': 'Government-financing'
     }
 
     var goals = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
@@ -261,7 +261,7 @@
 //                   '/' + countriesData[country].ISO + '-report-goal-' + d + '.docx';
           console.log(d)
           return './data/country_reports/' + countriesData[country].ISO + 
-                   '/' + countriesData[country].ISO + '-report-goal-' + d + '.docx';
+                   '/' + countriesData[country].ISO + '-' + countryReportNames[d] + '.docx';
       }
 
       d3.select('#download-goals')
@@ -272,8 +272,9 @@
         .append('a')
         .attr('href', function(d) {
             console.log(d)
-            if(d == 5) {
-                return generateLocalPunchCardPath(d);
+            if(d == 8) {
+//                return generateLocalPunchCardPath(d);
+                return 'http://mdgs.un.org/unsd/mdg/Resources/Static/Products/Progress2015/Snapshots/'+countriesData[country].ISO+'.pdf';
             } else {
                return generateLocalPath(d);
 
