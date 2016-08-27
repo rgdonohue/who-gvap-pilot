@@ -1,0 +1,13 @@
+total 8184
+-rwxr-xr-x@ 1 mattzook  staff   764376 Aug 26 15:29 Ethiopia- 90% DTP3cv.docx
+-rwxr-xr-x@ 1 mattzook  staff   206591 Aug 26 15:29 Ethiopia- 90% all vaccines.docx
+-rwxr-xr-x@ 1 mattzook  staff  1434438 Aug 26 15:29 Ethiopia- Final Report.docx
+-rwxr-xr-x@ 1 mattzook  staff    36279 Aug 26 15:29 Ethiopia- Government financing.docx
+-rwxr-xr-x@ 1 mattzook  staff   475525 Aug 26 15:29 Ethiopia- Immunization schedule.docx
+-rwxr-xr-x@ 1 mattzook  staff   283259 Aug 26 15:29 Ethiopia- Measles elimination.docx
+-rwxr-xr-x@ 1 mattzook  staff   155654 Aug 26 15:29 Ethiopia- NITAG.docx
+-rwxr-xr-x@ 1 mattzook  staff   201514 Aug 26 15:29 Ethiopia- Neonatal tetanus elimination.docx
+-rwxr-xr-x@ 1 mattzook  staff   201828 Aug 26 15:29 Ethiopia- New vaccines.docx
+-rwxr-xr-x@ 1 mattzook  staff   201121 Aug 26 15:29 Ethiopia- Polio.docx
+-rwxr-xr-x@ 1 mattzook  staff   200681 Aug 26 15:29 Ethiopia- Rubella elimination.docx
+-rw-r--r--  1 mattzook  staff        0 Aug 26 16:20 temp.txt

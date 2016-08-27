@@ -1,0 +1,13 @@
+total 6944
+-rwxr-xr-x@ 1 mattzook  staff   571568 Aug 27 19:06 Uganda- 90% DTP3cv.docx
+-rwxr-xr-x@ 1 mattzook  staff   177513 Aug 27 19:06 Uganda- 90% all vaccines.docx
+-rwxr-xr-x@ 1 mattzook  staff  1201768 Aug 27 19:06 Uganda- Final Report.docx
+-rwxr-xr-x@ 1 mattzook  staff   121176 Aug 27 19:06 Uganda- Government expenditure.docx
+-rwxr-xr-x@ 1 mattzook  staff   469772 Aug 27 19:06 Uganda- Immunization schedule.docx
+-rwxr-xr-x@ 1 mattzook  staff   247930 Aug 27 19:06 Uganda- Measles elimination.docx
+-rwxr-xr-x@ 1 mattzook  staff    41366 Aug 27 19:06 Uganda- NITAG.docx
+-rwxr-xr-x@ 1 mattzook  staff   175173 Aug 27 19:06 Uganda- Neonatal tetanus elimination.docx
+-rwxr-xr-x@ 1 mattzook  staff   175360 Aug 27 19:06 Uganda- New vaccines.docx
+-rwxr-xr-x@ 1 mattzook  staff   177927 Aug 27 19:06 Uganda- Polio.docx
+-rwxr-xr-x@ 1 mattzook  staff   173173 Aug 27 19:06 Uganda- Rubella elimination.docx
+-rw-r--r--  1 mattzook  staff        0 Aug 27 19:08 temp.txt

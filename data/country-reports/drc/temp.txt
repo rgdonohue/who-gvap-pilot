@@ -1,0 +1,13 @@
+total 9968
+-rwxr-xr-x@ 1 mattzook  staff   714207 Aug 26 15:28 DRC- 90% DTP3cv.docx
+-rwxr-xr-x@ 1 mattzook  staff   200559 Aug 26 15:28 DRC- 90% all vaccines.docx
+-rwxr-xr-x@ 1 mattzook  staff  1922345 Aug 26 15:28 DRC- Final Report.docx
+-rwxr-xr-x@ 1 mattzook  staff    62051 Aug 26 15:28 DRC- Government expenditure.docx
+-rwxr-xr-x@ 1 mattzook  staff   499289 Aug 26 15:28 DRC- Immunization schedule.docx
+-rwxr-xr-x@ 1 mattzook  staff   274851 Aug 26 15:28 DRC- Measles elimination.docx
+-rwxr-xr-x@ 1 mattzook  staff   494046 Aug 26 15:28 DRC- NITAG.docx
+-rwxr-xr-x@ 1 mattzook  staff   191914 Aug 26 15:28 DRC- Neonatal tetanus elimination.docx
+-rwxr-xr-x@ 1 mattzook  staff   189654 Aug 26 15:28 DRC- New vaccines.docx
+-rwxr-xr-x@ 1 mattzook  staff   340343 Aug 26 15:28 DRC- Polio.docx
+-rwxr-xr-x@ 1 mattzook  staff   189164 Aug 26 15:28 DRC- Rubella elimination.docx
+-rw-r--r--  1 mattzook  staff        0 Aug 26 16:20 temp.txt

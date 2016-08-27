@@ -1,0 +1,13 @@
+total 7248
+-rwxr-xr-x@ 1 mattzook  staff   536300 Aug 26 15:31 Indonesia- 90% DTP3cv.docx
+-rwxr-xr-x@ 1 mattzook  staff   202607 Aug 26 15:31 Indonesia- 90% all vaccines.docx
+-rwxr-xr-x@ 1 mattzook  staff  1268123 Aug 26 15:31 Indonesia- Final Report.docx
+-rwxr-xr-x@ 1 mattzook  staff    96079 Aug 26 15:31 Indonesia- Government expenditure.docx
+-rwxr-xr-x@ 1 mattzook  staff   556075 Aug 26 15:31 Indonesia- Immunization schedule.docx
+-rwxr-xr-x@ 1 mattzook  staff   293527 Aug 26 15:31 Indonesia- Measles elimination.docx
+-rwxr-xr-x@ 1 mattzook  staff    38000 Aug 26 15:31 Indonesia- NITAG.docx
+-rwxr-xr-x@ 1 mattzook  staff   175541 Aug 26 15:31 Indonesia- Neonatal tetanus elimination.docx
+-rwxr-xr-x@ 1 mattzook  staff   174389 Aug 26 15:31 Indonesia- New vaccines.docx
+-rwxr-xr-x@ 1 mattzook  staff   177734 Aug 26 15:31 Indonesia- Polio.docx
+-rwxr-xr-x@ 1 mattzook  staff   173421 Aug 26 15:31 Indonesia- Rubella elimination.docx
+-rw-r--r--  1 mattzook  staff        0 Aug 26 16:21 temp.txt

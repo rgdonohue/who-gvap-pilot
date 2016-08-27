@@ -1,0 +1,13 @@
+total 9816
+-rwxr-xr-x@ 1 mattzook  staff  1327881 Aug 26 15:31 Pakistan- 90% DTP3cv.docx
+-rwxr-xr-x@ 1 mattzook  staff   194981 Aug 26 15:31 Pakistan- 90% all vaccines.docx
+-rwxr-xr-x@ 1 mattzook  staff  1879418 Aug 26 15:31 Pakistan- Final Report.docx
+-rwxr-xr-x@ 1 mattzook  staff    30218 Aug 26 15:31 Pakistan- Government expenditure.docx
+-rwxr-xr-x@ 1 mattzook  staff   482787 Aug 26 15:31 Pakistan- Immunization schedule.docx
+-rwxr-xr-x@ 1 mattzook  staff   265070 Aug 26 15:31 Pakistan- Measles elimination.docx
+-rwxr-xr-x@ 1 mattzook  staff    42456 Aug 26 15:31 Pakistan- NITAG.docx
+-rwxr-xr-x@ 1 mattzook  staff   193797 Aug 26 15:31 Pakistan- Neonatal tetanus elimination.docx
+-rwxr-xr-x@ 1 mattzook  staff   193121 Aug 26 15:31 Pakistan- New vaccines.docx
+-rwxr-xr-x@ 1 mattzook  staff   199184 Aug 26 15:31 Pakistan- Polio.docx
+-rwxr-xr-x@ 1 mattzook  staff   192576 Aug 26 15:31 Pakistan- Rubella elimination.docx
+-rw-r--r--  1 mattzook  staff        0 Aug 26 16:21 temp.txt

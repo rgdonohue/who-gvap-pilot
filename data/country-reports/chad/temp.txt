@@ -1,0 +1,13 @@
+total 7496
+-rwxr-xr-x@ 1 mattzook  staff   607588 Aug 26 15:27 Chad-90% DTP3cv.docx
+-rwxr-xr-x@ 1 mattzook  staff   266510 Aug 26 15:27 Chad-90% all vaccines.docx
+-rwxr-xr-x@ 1 mattzook  staff  1142126 Aug 26 15:27 Chad-Full Report.docx
+-rwxr-xr-x@ 1 mattzook  staff    42254 Aug 26 15:27 Chad-Government expenditure.docx
+-rwxr-xr-x@ 1 mattzook  staff   456372 Aug 26 15:27 Chad-Immunization schedule.docx
+-rwxr-xr-x@ 1 mattzook  staff   312530 Aug 26 15:27 Chad-Measles elimination.docx
+-rwxr-xr-x@ 1 mattzook  staff    35268 Aug 26 15:27 Chad-NITAG.docx
+-rwxr-xr-x@ 1 mattzook  staff   237798 Aug 26 15:27 Chad-Neonatal tetanus elimination.docx
+-rwxr-xr-x@ 1 mattzook  staff   235585 Aug 26 15:27 Chad-New vaccines.docx
+-rwxr-xr-x@ 1 mattzook  staff   241189 Aug 26 15:27 Chad-Polio.docx
+-rwxr-xr-x@ 1 mattzook  staff   235295 Aug 26 15:27 Chad-Rubella and CRS elimination.docx
+-rw-r--r--  1 mattzook  staff        0 Aug 26 16:20 temp.txt

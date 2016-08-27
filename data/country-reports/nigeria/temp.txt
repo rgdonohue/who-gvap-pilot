@@ -1,0 +1,13 @@
+total 5896
+-rwxr-xr-x@ 1 mattzook  staff   487375 Aug 26 15:31 Nigeria- 90% DTP3cv.docx
+-rwxr-xr-x@ 1 mattzook  staff    88952 Aug 26 15:31 Nigeria- 90% all vaccines.docx
+-rwxr-xr-x@ 1 mattzook  staff  1330054 Aug 26 15:31 Nigeria- Final Report.docx
+-rwxr-xr-x@ 1 mattzook  staff    33378 Aug 26 15:31 Nigeria- Government expenditure.docx
+-rwxr-xr-x@ 1 mattzook  staff   591805 Aug 26 15:31 Nigeria- Immunization schedule.docx
+-rwxr-xr-x@ 1 mattzook  staff   257851 Aug 26 15:31 Nigeria- Measles elimination.docx
+-rwxr-xr-x@ 1 mattzook  staff    38179 Aug 26 15:31 Nigeria- NITAG.docx
+-rwxr-xr-x@ 1 mattzook  staff    33736 Aug 26 15:31 Nigeria- Neonatal tetanus elimination.docx
+-rwxr-xr-x@ 1 mattzook  staff    35023 Aug 26 15:31 Nigeria- New vaccines.docx
+-rwxr-xr-x@ 1 mattzook  staff    67281 Aug 26 15:31 Nigeria- Polio.docx
+-rwxr-xr-x@ 1 mattzook  staff    33579 Aug 26 15:31 Nigeria- Rubella elimination.docx
+-rw-r--r--  1 mattzook  staff        0 Aug 26 16:21 temp.txt
