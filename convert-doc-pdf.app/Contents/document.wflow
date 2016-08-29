@@ -1,318 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-<dict>
-	<key>AMApplicationBuild</key>
-	<string>419</string>
-	<key>AMApplicationVersion</key>
-	<string>2.6</string>
-	<key>AMDocumentVersion</key>
-	<string>2</string>
-	<key>actions</key>
-	<array>
-		<dict>
-			<key>action</key>
-			<dict>
-				<key>AMAccepts</key>
-				<dict>
-					<key>Container</key>
-					<string>List</string>
-					<key>Optional</key>
-					<true/>
-					<key>Types</key>
-					<array>
-						<string>com.apple.cocoa.path</string>
-					</array>
-				</dict>
-				<key>AMActionVersion</key>
-				<string>1.1.2</string>
-				<key>AMApplication</key>
-				<array>
-					<string>Finder</string>
-				</array>
-				<key>AMParameterProperties</key>
-				<dict>
-					<key>fileNames</key>
-					<dict/>
-				</dict>
-				<key>AMProvides</key>
-				<dict>
-					<key>Container</key>
-					<string>List</string>
-					<key>Types</key>
-					<array>
-						<string>com.apple.cocoa.path</string>
-					</array>
-				</dict>
-				<key>ActionBundlePath</key>
-				<string>/System/Library/Automator/Get Specified Finder Items.action</string>
-				<key>ActionName</key>
-				<string>Get Specified Finder Items</string>
-				<key>ActionParameters</key>
-				<dict>
-					<key>fileNames</key>
-					<array>
-						<string>~/Documents/github.rgdonohue/who-gvap-pilot/data/country_reports/IDN/IDN-Full-Report.docx</string>
-						<string>~/Documents/github.rgdonohue/who-gvap-pilot/data/country_reports/IDN/IDN-Measles-elimination.docx</string>
-						<string>~/Documents/github.rgdonohue/who-gvap-pilot/data/country_reports/IDN/IDN-Neonatal-tetanus-elimination.docx</string>
-						<string>~/Documents/github.rgdonohue/who-gvap-pilot/data/country_reports/IDN/IDN-Polio.docx</string>
-						<string>~/Documents/github.rgdonohue/who-gvap-pilot/data/country_reports/IDN/IDN-Rubella-elimination.docx</string>
-						<string>~/Documents/github.rgdonohue/who-gvap-pilot/data/country_reports/IDN/IDN-all-vaccines.docx</string>
-						<string>~/Documents/github.rgdonohue/who-gvap-pilot/data/country_reports/IDN/IDN-DTP3cv.docx</string>
-						<string>~/Documents/github.rgdonohue/who-gvap-pilot/data/country_reports/IDN/IDN-Government-expenditure.docx</string>
-						<string>~/Documents/github.rgdonohue/who-gvap-pilot/data/country_reports/IDN/IDN-Immunization-schedule.docx</string>
-						<string>~/Documents/github.rgdonohue/who-gvap-pilot/data/country_reports/IDN/IDN-New-vaccines.docx</string>
-						<string>~/Documents/github.rgdonohue/who-gvap-pilot/data/country_reports/IDN/IDN-NITAG.docx</string>
-						<string>~/Documents/github.rgdonohue/who-gvap-pilot/data/country_reports/ETH/ETH-all-vaccines.docx</string>
-						<string>~/Documents/github.rgdonohue/who-gvap-pilot/data/country_reports/ETH/ETH-DTP3cv.docx</string>
-						<string>~/Documents/github.rgdonohue/who-gvap-pilot/data/country_reports/ETH/ETH-Full-Report.docx</string>
-						<string>~/Documents/github.rgdonohue/who-gvap-pilot/data/country_reports/ETH/ETH-Government-expenditure.docx</string>
-						<string>~/Documents/github.rgdonohue/who-gvap-pilot/data/country_reports/ETH/ETH-Measles-elimination.docx</string>
-						<string>~/Documents/github.rgdonohue/who-gvap-pilot/data/country_reports/ETH/ETH-Neonatal-tetanus-elimination.docx</string>
-						<string>~/Documents/github.rgdonohue/who-gvap-pilot/data/country_reports/ETH/ETH-New-vaccines.docx</string>
-						<string>~/Documents/github.rgdonohue/who-gvap-pilot/data/country_reports/ETH/ETH-NITAG.docx</string>
-						<string>~/Documents/github.rgdonohue/who-gvap-pilot/data/country_reports/ETH/ETH-Polio.docx</string>
-						<string>~/Documents/github.rgdonohue/who-gvap-pilot/data/country_reports/ETH/ETH-Rubella-elimination.docx</string>
-						<string>~/Documents/github.rgdonohue/who-gvap-pilot/data/country_reports/ETH/ETH-Immunization-schedule.docx</string>
-						<string>~/Documents/github.rgdonohue/who-gvap-pilot/data/country_reports/COD/COD-all-vaccines.docx</string>
-						<string>~/Documents/github.rgdonohue/who-gvap-pilot/data/country_reports/COD/COD-DTP3cv.docx</string>
-						<string>~/Documents/github.rgdonohue/who-gvap-pilot/data/country_reports/COD/COD-Full-Report.docx</string>
-						<string>~/Documents/github.rgdonohue/who-gvap-pilot/data/country_reports/COD/COD-Government-expenditure.docx</string>
-						<string>~/Documents/github.rgdonohue/who-gvap-pilot/data/country_reports/COD/COD-Immunization-schedule.docx</string>
-						<string>~/Documents/github.rgdonohue/who-gvap-pilot/data/country_reports/COD/COD-Measles-elimination.docx</string>
-						<string>~/Documents/github.rgdonohue/who-gvap-pilot/data/country_reports/COD/COD-Neonatal-tetanus-elimination.docx</string>
-						<string>~/Documents/github.rgdonohue/who-gvap-pilot/data/country_reports/COD/COD-New-vaccines.docx</string>
-						<string>~/Documents/github.rgdonohue/who-gvap-pilot/data/country_reports/COD/COD-NITAG.docx</string>
-						<string>~/Documents/github.rgdonohue/who-gvap-pilot/data/country_reports/COD/COD-Polio.docx</string>
-						<string>~/Documents/github.rgdonohue/who-gvap-pilot/data/country_reports/COD/COD-Rubella-elimination.docx</string>
-					</array>
-				</dict>
-				<key>ActionRuntimeParameters</key>
-				<dict>
-					<key>fileNames</key>
-					<array>
-						<string>~/Documents/github.rgdonohue/who-gvap-pilot/data/country_reports/IDN/IDN-Full-Report.docx</string>
-						<string>~/Documents/github.rgdonohue/who-gvap-pilot/data/country_reports/IDN/IDN-Measles-elimination.docx</string>
-						<string>~/Documents/github.rgdonohue/who-gvap-pilot/data/country_reports/IDN/IDN-Neonatal-tetanus-elimination.docx</string>
-						<string>~/Documents/github.rgdonohue/who-gvap-pilot/data/country_reports/IDN/IDN-Polio.docx</string>
-						<string>~/Documents/github.rgdonohue/who-gvap-pilot/data/country_reports/IDN/IDN-Rubella-elimination.docx</string>
-						<string>~/Documents/github.rgdonohue/who-gvap-pilot/data/country_reports/IDN/IDN-all-vaccines.docx</string>
-						<string>~/Documents/github.rgdonohue/who-gvap-pilot/data/country_reports/IDN/IDN-DTP3cv.docx</string>
-						<string>~/Documents/github.rgdonohue/who-gvap-pilot/data/country_reports/IDN/IDN-Government-expenditure.docx</string>
-						<string>~/Documents/github.rgdonohue/who-gvap-pilot/data/country_reports/IDN/IDN-Immunization-schedule.docx</string>
-						<string>~/Documents/github.rgdonohue/who-gvap-pilot/data/country_reports/IDN/IDN-New-vaccines.docx</string>
-						<string>~/Documents/github.rgdonohue/who-gvap-pilot/data/country_reports/IDN/IDN-NITAG.docx</string>
-						<string>~/Documents/github.rgdonohue/who-gvap-pilot/data/country_reports/ETH/ETH-all-vaccines.docx</string>
-						<string>~/Documents/github.rgdonohue/who-gvap-pilot/data/country_reports/ETH/ETH-DTP3cv.docx</string>
-						<string>~/Documents/github.rgdonohue/who-gvap-pilot/data/country_reports/ETH/ETH-Full-Report.docx</string>
-						<string>~/Documents/github.rgdonohue/who-gvap-pilot/data/country_reports/ETH/ETH-Government-expenditure.docx</string>
-						<string>~/Documents/github.rgdonohue/who-gvap-pilot/data/country_reports/ETH/ETH-Measles-elimination.docx</string>
-						<string>~/Documents/github.rgdonohue/who-gvap-pilot/data/country_reports/ETH/ETH-Neonatal-tetanus-elimination.docx</string>
-						<string>~/Documents/github.rgdonohue/who-gvap-pilot/data/country_reports/ETH/ETH-New-vaccines.docx</string>
-						<string>~/Documents/github.rgdonohue/who-gvap-pilot/data/country_reports/ETH/ETH-NITAG.docx</string>
-						<string>~/Documents/github.rgdonohue/who-gvap-pilot/data/country_reports/ETH/ETH-Polio.docx</string>
-						<string>~/Documents/github.rgdonohue/who-gvap-pilot/data/country_reports/ETH/ETH-Rubella-elimination.docx</string>
-						<string>~/Documents/github.rgdonohue/who-gvap-pilot/data/country_reports/ETH/ETH-Immunization-schedule.docx</string>
-						<string>~/Documents/github.rgdonohue/who-gvap-pilot/data/country_reports/COD/COD-all-vaccines.docx</string>
-						<string>~/Documents/github.rgdonohue/who-gvap-pilot/data/country_reports/COD/COD-DTP3cv.docx</string>
-						<string>~/Documents/github.rgdonohue/who-gvap-pilot/data/country_reports/COD/COD-Full-Report.docx</string>
-						<string>~/Documents/github.rgdonohue/who-gvap-pilot/data/country_reports/COD/COD-Government-expenditure.docx</string>
-						<string>~/Documents/github.rgdonohue/who-gvap-pilot/data/country_reports/COD/COD-Immunization-schedule.docx</string>
-						<string>~/Documents/github.rgdonohue/who-gvap-pilot/data/country_reports/COD/COD-Measles-elimination.docx</string>
-						<string>~/Documents/github.rgdonohue/who-gvap-pilot/data/country_reports/COD/COD-Neonatal-tetanus-elimination.docx</string>
-						<string>~/Documents/github.rgdonohue/who-gvap-pilot/data/country_reports/COD/COD-New-vaccines.docx</string>
-						<string>~/Documents/github.rgdonohue/who-gvap-pilot/data/country_reports/COD/COD-NITAG.docx</string>
-						<string>~/Documents/github.rgdonohue/who-gvap-pilot/data/country_reports/COD/COD-Polio.docx</string>
-						<string>~/Documents/github.rgdonohue/who-gvap-pilot/data/country_reports/COD/COD-Rubella-elimination.docx</string>
-					</array>
-					<key>temporary items path</key>
-					<string>/var/folders/8n/5pypfm3n3bsfg66n7jt8fn1c0000gn/T/C4E7FE8B-1822-42BD-97F0-1D2347C868A0/1/com.apple.Automator.SpecifiedFiles</string>
-				</dict>
-				<key>BundleIdentifier</key>
-				<string>com.apple.Automator.SpecifiedFiles</string>
-				<key>CFBundleVersion</key>
-				<string>1.1.2</string>
-				<key>CanShowSelectedItemsWhenRun</key>
-				<false/>
-				<key>CanShowWhenRun</key>
-				<true/>
-				<key>Category</key>
-				<array>
-					<string>AMCategoryFilesAndFolders</string>
-				</array>
-				<key>Class Name</key>
-				<string>SpecifiedFilesAction</string>
-				<key>InputUUID</key>
-				<string>D62BF237-D852-4043-A003-5D6F7A121937</string>
-				<key>Keywords</key>
-				<array>
-					<string>File</string>
-					<string>Choose</string>
-					<string>Find</string>
-					<string>Get</string>
-				</array>
-				<key>OutputUUID</key>
-				<string>CBC3A0FB-D273-4A98-B547-1B472E6AFA1F</string>
-				<key>UUID</key>
-				<string>C7AAAF49-13A5-4205-9A72-0BAA336C536E</string>
-				<key>UnlocalizedApplications</key>
-				<array>
-					<string>Finder</string>
-				</array>
-				<key>arguments</key>
-				<dict>
-					<key>0</key>
-					<dict>
-						<key>default value</key>
-						<array/>
-						<key>name</key>
-						<string>fileNames</string>
-						<key>required</key>
-						<string>0</string>
-						<key>type</key>
-						<string>0</string>
-						<key>uuid</key>
-						<string>0</string>
-					</dict>
-				</dict>
-				<key>conversionLabel</key>
-				<integer>0</integer>
-				<key>isViewVisible</key>
-				<true/>
-				<key>location</key>
-				<string>292.000000:517.000000</string>
-				<key>nibPath</key>
-				<string>/System/Library/Automator/Get Specified Finder Items.action/Contents/Resources/English.lproj/main.nib</string>
-			</dict>
-			<key>isViewVisible</key>
-			<true/>
-		</dict>
-		<dict>
-			<key>action</key>
-			<dict>
-				<key>AMAccepts</key>
-				<dict>
-					<key>Container</key>
-					<string>List</string>
-					<key>Optional</key>
-					<true/>
-					<key>Types</key>
-					<array>
-						<string>com.apple.applescript.object</string>
-					</array>
-				</dict>
-				<key>AMActionVersion</key>
-				<string>1.0.2</string>
-				<key>AMApplication</key>
-				<array>
-					<string>Automator</string>
-				</array>
-				<key>AMParameterProperties</key>
-				<dict>
-					<key>source</key>
-					<dict/>
-				</dict>
-				<key>AMProvides</key>
-				<dict>
-					<key>Container</key>
-					<string>List</string>
-					<key>Types</key>
-					<array>
-						<string>com.apple.applescript.object</string>
-					</array>
-				</dict>
-				<key>ActionBundlePath</key>
-				<string>/System/Library/Automator/Run AppleScript.action</string>
-				<key>ActionName</key>
-				<string>Run AppleScript</string>
-				<key>ActionParameters</key>
-				<dict>
-					<key>source</key>
-					<string>property theList : {"doc", "docx"}on run {input, parameters}	set output to {}	tell application "Microsoft Word" to set theOldDefaultPath to get default file path file path type documents path	repeat with x in input		try			set theDoc to contents of x			tell application "Finder"				set theFilePath to container of theDoc as text								set ext to name extension of theDoc				if ext is in theList then					set theName to name of theDoc					copy length of theName to l					copy length of ext to exl										set n to l - exl - 1					copy characters 1 through n of theName as string to theFilename										set theFilename to theFilename &amp; ".pdf"										tell application "Microsoft Word"						set default file path file path type documents path path theFilePath						open theDoc						set theActiveDoc to the active document						save as theActiveDoc file format format PDF file name theFilename						copy (POSIX path of (theFilePath &amp; theFilename as string)) to end of output						close theActiveDoc					end tell				end if			end tell		end try	end repeat	tell application "Microsoft Word" to set default file path file path type documents path path theOldDefaultPath			return outputend run</string>
-				</dict>
-				<key>ActionRuntimeParameters</key>
-				<dict>
-					<key>source</key>
-					<string>property theList : {"doc", "docx"}on run {input, parameters}	set output to {}	tell application "Microsoft Word" to set theOldDefaultPath to get default file path file path type documents path	repeat with x in input		try			set theDoc to contents of x			tell application "Finder"				set theFilePath to container of theDoc as text								set ext to name extension of theDoc				if ext is in theList then					set theName to name of theDoc					copy length of theName to l					copy length of ext to exl										set n to l - exl - 1					copy characters 1 through n of theName as string to theFilename										set theFilename to theFilename &amp; ".pdf"										tell application "Microsoft Word"						set default file path file path type documents path path theFilePath						open theDoc						set theActiveDoc to the active document						save as theActiveDoc file format format PDF file name theFilename						copy (POSIX path of (theFilePath &amp; theFilename as string)) to end of output						close theActiveDoc					end tell				end if			end tell		end try	end repeat	tell application "Microsoft Word" to set default file path file path type documents path path theOldDefaultPath			return outputend run</string>
-					<key>temporary items path</key>
-					<string>/var/folders/8n/5pypfm3n3bsfg66n7jt8fn1c0000gn/T/C4E7FE8B-1822-42BD-97F0-1D2347C868A0/1/com.apple.Automator.RunScript</string>
-				</dict>
-				<key>BundleIdentifier</key>
-				<string>com.apple.Automator.RunScript</string>
-				<key>CFBundleVersion</key>
-				<string>1.0.2</string>
-				<key>CanShowSelectedItemsWhenRun</key>
-				<false/>
-				<key>CanShowWhenRun</key>
-				<true/>
-				<key>Category</key>
-				<array>
-					<string>AMCategoryUtilities</string>
-				</array>
-				<key>Class Name</key>
-				<string>RunScriptAction</string>
-				<key>InputUUID</key>
-				<string>CD3BEF40-F8EC-41BC-9F66-B87F5F144F5A</string>
-				<key>Keywords</key>
-				<array>
-					<string>Run</string>
-				</array>
-				<key>OutputUUID</key>
-				<string>5A8C0961-AC2B-448E-9498-4F9530A8856B</string>
-				<key>UUID</key>
-				<string>D57E48BC-B9BD-453B-8908-AB74D0B7646C</string>
-				<key>UnlocalizedApplications</key>
-				<array>
-					<string>Automator</string>
-				</array>
-				<key>arguments</key>
-				<dict>
-					<key>0</key>
-					<dict>
-						<key>default value</key>
-						<string>on run {input, parameters}
-	
-	(* Your script goes here *)
-	
-	return input
-end run</string>
-						<key>name</key>
-						<string>source</string>
-						<key>required</key>
-						<string>0</string>
-						<key>type</key>
-						<string>0</string>
-						<key>uuid</key>
-						<string>0</string>
-					</dict>
-				</dict>
-				<key>conversionLabel</key>
-				<integer>0</integer>
-				<key>isViewVisible</key>
-				<true/>
-				<key>location</key>
-				<string>292.000000:1131.000000</string>
-				<key>nibPath</key>
-				<string>/System/Library/Automator/Run AppleScript.action/Contents/Resources/Base.lproj/main.nib</string>
-			</dict>
-			<key>isViewVisible</key>
-			<true/>
-		</dict>
-	</array>
-	<key>connectors</key>
-	<dict>
-		<key>5849BC01-683E-4A4B-A70C-18988BB54279</key>
-		<dict>
-			<key>from</key>
-			<string>C7AAAF49-13A5-4205-9A72-0BAA336C536E - C7AAAF49-13A5-4205-9A72-0BAA336C536E</string>
-			<key>to</key>
-			<string>D57E48BC-B9BD-453B-8908-AB74D0B7646C - D57E48BC-B9BD-453B-8908-AB74D0B7646C</string>
-		</dict>
-	</dict>
-	<key>workflowMetaData</key>
-	<dict>
-		<key>workflowTypeIdentifier</key>
-		<string>com.apple.Automator.application</string>
-	</dict>
-</dict>
-</plist>
