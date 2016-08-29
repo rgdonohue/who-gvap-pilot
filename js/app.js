@@ -248,7 +248,7 @@
 
         var generateLocalPath = function (d) {
             return './data/country_reports/' + iso +
-                '/' + iso + '-' + countryReportNames[d] + '.docx';
+                '/' + iso + '-' + countryReportNames[d] + '.pdf';
         }
 
         d3.select('#download-goals')
@@ -333,9 +333,9 @@
             });
 
         d3.select('#full-report')
-            .attr('href', './data/country_reports/' + iso + '/' + iso + '-Full-Report.docx');
+            .attr('href', './data/country_reports/' + iso + '/' + iso + '-Full-Report.pdf');
         d3.select('#immunization-schedule')
-            .attr('href', './data/country_reports/' + iso + '/' + iso + '-Immunization-schedule.docx');
+            .attr('href', './data/country_reports/' + iso + '/' + iso + '-Immunization-schedule.pdf');
         d3.select('#who-monitoring').attr('href', 'http://apps.who.int/immunization_monitoring/globalsummary/countries?countrycriteria%5Bcountry%5D%5B%5D=' + iso).attr('target', '_blank');
 
 
